@@ -6,7 +6,7 @@ import { PaymentTransactionService } from '../service/PaymentTransaction.service
 //import { Query} from './Query';
 
 @Component({
-    selector: 'simple2',
+    selector: 'editPaymentTransaction',
     directives: [ListCategoriesComponent],
     templateUrl: 'App/editpaymenttransaction.html'
     providers: [PaymentTransactionService]
