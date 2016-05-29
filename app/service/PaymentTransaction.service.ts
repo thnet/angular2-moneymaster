@@ -14,7 +14,9 @@
   */
 import { Injectable }    from '@angular/core';
  import {Http} from '@angular/http';
+ import {Category} from '../model/Category'
  import {PaymentTransaction} from '../model/PaymentTransaction'
+ import {PaymentTransactionItem} from '../model/PaymentTransactionItem'
  import {Query} from '../model/Query'
  import 'rxjs/add/operator/toPromise';
  //This indicates the Dependency Injector that the class has dependencies that should be injected into the constructor when creating an instance of this class.
@@ -32,18 +34,51 @@ export class PaymentTransactionService{
 //	createPaymentTransaction(paymentTransaction:PaymentTransaction){
 //		//http.post
 //	}
-//	
-//	getPaymentTransactions(query:Query):Promise<PaymentTransaction[]>{
-////		
-////		 return this.http.get(this.getTransactionsUrl)
-////         .toPromise()
-////         .then(response => response.json().data)
-////         .catch(this.handleError);
+//	:Promise<PaymentTransaction[]>{
+	getPaymentTransactions(query:Query) {
 //		
+		let p1 = new PaymentTransaction();
+		
+		let item1 = new PaymentTransactionItem();
+		let category1 = new Category();
+		category1.name="RUOKA";
+		item1.category=category1;
+		item1.moneyAmount=100;
+		
+		let item2 = new PaymentTransactionItem();
+		let category2 = new Category();
+		category2.name="ASUMINEN";
+		item2.category=category2;
+		item2.moneyAmount=200;
+		
+		p1.items = [item1, item2]
+		p1.date="2016-02-01";
+		
+		let p2 = new PaymentTransaction();
+		
+		let item3 = new PaymentTransactionItem();
+		item3.category=category1:
+		item3.moneyAmount=33440:
+			
+		let item4 = new PaymentTransactionItem();
+		item4.category=category2;
+		item4.moneyAmount=124;
+		
+		p2.items = [item3, item4]
+		p2.date="2016-02-01";
+		
+		var transactions[] = [p1, p2];
+		return transactions;
+	}
+//		 return this.http.get(this.getTransactionsUrl)
+//         .toPromise()
+//         .then(response => response.json().data)
+//         .catch(this.handleError);
+		
 //		return this.http.get(this.createUrl(query)).toPromise()
 //        .then(response => response.json().data)
 //        .catch(this.handleError);;
-//	}
+	}
 //	
 //	private createUrl(query:Query):string{
 //		var url=this.paymentTransactionsUrl;

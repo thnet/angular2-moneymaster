@@ -1,0 +1,18 @@
+<div class="container">
+
+	<h1>Aiemmat maksutapahtumat kuukaudelle</h1>
+		
+	<table>
+		<thead>
+			<th>P‰iv‰ys</th>
+			<th>Kategoria</th>
+			<th>M‰‰r‰</th>
+		</thead>
+		<tbody *ngFor="let transaction of paymentTransactions">
+			<tr *ngFor="let item of transaction.items">
+				<td>{{transaction.date}}</td><td>{{item.category.name}}</td><td>{{item.moneyAmount}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>

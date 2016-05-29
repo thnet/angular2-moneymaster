@@ -1,0 +1,35 @@
+<div class="container">
+
+	<h1>Uusi maksutapahtuma</h1>
+	{{diagnostic}}
+	<form (ngSubmit)="save()">
+		<div class="fromGroup">
+			<label>pvm</label>
+			<input type="text" class="form-control"  [(ngModel)]="paymentTransaction.date" />
+			TODO: remove this: {{paymentTransaction.date}}
+		</div>
+		<div class="fromGroup">
+			<label for="category">Kategoria</label>
+		
+				<listCategories></listCategories>
+
+		</div>
+		<div class="fromGroup">
+			<label for="cost">Kustannus</label>
+			<input [(ngModel)]="item.moneyAmount"/>
+		</div>
+		 <button type="submit" class="btn btn-default">Tallena tapahtuma</button>
+		<button type="button" class="btn btn-default" (click)="addItem()">Lis‰‰ tapahtumarivi</button>
+		TODO: remove this: {{paymentTransaction.items}}
+		</form> 
+
+
+	<ul>
+		 <li *ngFor="let item of paymentTransaction.items">
+			 {{item.category.name}}
+		 	{{item.moneyAmount}}
+		 </li>
+	</ul>
+
+
+</div>
